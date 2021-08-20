@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width">
     <!--adding external css-->
     <link rel="stylesheet" href="../css/EmployeeForm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
     <title>Employee Payroll App</title>
 </head>
 <body>
+    <!--UC1-->
     <!--adding logo and content-->
     <header class="header-content">
         <div class="logo-content">
@@ -19,4 +21,16 @@
             </div>
         </div>
     </header>
+    <!--UC2-creating a form with name field-->
+<div class="form-content">
+<form class="form">
+        <header class="form-head">Employee Payroll Form</header>
+        <div class="row-content">
+            <label class="label-text" for="name">Name</label>
+            <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+</form>
+
+</div>
 </body>
