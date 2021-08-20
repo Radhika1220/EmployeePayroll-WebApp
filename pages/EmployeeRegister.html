@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html data-lt-installed="true">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
     <title>Employee Payroll App</title>
 </head>
+
 <body>
     <!--UC1-->
     <!--adding logo and content-->
@@ -22,15 +24,36 @@
         </div>
     </header>
     <!--UC2-creating a form with name field-->
-<div class="form-content">
-<form class="form">
-        <header class="form-head">Employee Payroll Form</header>
+    <div class="form-content">
+        <form class="form">
+            <header class="form-head">Employee Payroll Form</header>
+            <div class="row-content">
+                <label class="label-text" for="name">Name</label>
+                <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+                <error-output class="text-error" for="text"></error-output>
+            </div>
+      <!--UC3--adding a row in form (profile image)-->
         <div class="row-content">
-            <label class="label-text" for="name">Name</label>
-            <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
-            <error-output class="text-error" for="text"></error-output>
-        </div>
+            <label class="label-text">Profile Image</label>
+            <div class="profile-radio-content">
+                <label>
+                    <input type="radio" id="profile1" name="profile" value="../assests/profile-images/Ellipse -1.png" required>
+                    <img src="../assests/profile-images/Ellipse -1.png" id="image1" alt="Image 1" class="profile">
+                </label>
+                <label>
+                    <input type="radio" id="profile2" name="profile" value="../assests/profile-images/Ellipse -2.png" required>
+                    <img src="../assests/profile-images/Ellipse -2.png" id="image2" alt="Image 2" class="profile">
+                </label>
+                <label>
+                    <input type="radio" id="profile3" name="profile" value="../assests/profile-images/Ellipse -3.png" required>
+                    <img src="../assests/profile-images/Ellipse -3.png" id="image3" alt="Image 3" class="profile">
+                </label>
+                <label>
+                    <input type="radio" id="profile4" name="profile" value="../assests/profile-images/Ellipse -4.png" required>
+                    <img src="../assests/profile-images/Ellipse -4.png" id="image4" alt="Image 4" class="profile">
+                </label>
+            </div>
+    </div>
 </form>
-
 </div>
 </body>
