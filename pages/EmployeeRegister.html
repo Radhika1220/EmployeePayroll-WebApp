@@ -28,13 +28,13 @@
         <form class="form">
             <header class="form-head">Employee Payroll Form</header>
             <div class="row-content">
-                <label class="label-text" for="name">Name</label>
+                <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
                 <error-output class="text-error" for="text"></error-output>
             </div>
       <!--UC3--adding a row in form (profile image)-->
         <div class="row-content">
-            <label class="label-text">Profile Image</label>
+            <label class="label text">Profile Image</label>
             <div class="profile-radio-content">
                 <label>
                     <input type="radio" id="profile1" name="profile" value="../assests/profile-images/Ellipse -1.png" required>
@@ -53,6 +53,38 @@
                     <img src="../assests/profile-images/Ellipse -4.png" id="image4" alt="Image 4" class="profile">
                 </label>
             </div>
+    </div>
+    <!--UC4-adding gender and department-->
+    <div class="row-content">
+    <label class="label text" for="gender">Gender</label>
+    <div class="gender-radio-content">
+        <input type="radio" id="male" name="gender" value="male">
+        <label class="text" for="male">Male</label>
+        <input type="radio" id="Female" name="gender" value="Female">
+        <label class="text" for="Female">Female</label>
+    </div>
+    </div>
+    <div class="row-content">
+        <label class="label text ">Department</label>
+        <div>
+            <input type="checkbox" id="HR" value="HR">
+            <label for="HR" class="department">HR</label>
+            <input type="checkbox" id="Sales" value="Sales">
+            <label for="Sales" class="department">Sales</label>
+            <input type="checkbox" id="Finance" value="Finance">
+            <label for="Finance" class="department">Finance</label>
+            <input type="checkbox" id="Engineer" value="Engineer">
+            <label for="Engineer" class="department">Engineer</label>
+            <input type="checkbox" id="Others" value="Others">
+            <label for="Others" class="department">Others</label>
+        </div>
+    </div>
+
+    <div class="row-content">
+        <label class="label" for="salary">Salary</label>
+        <input type="range" class="input" id="salary" min="300000" max="500000" step="100" name="salary"
+        value="400000">
+        <output class="salary-output text" for="salary">400000</output>
     </div>
 </form>
 </div>
