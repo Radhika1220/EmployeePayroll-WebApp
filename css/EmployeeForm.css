@@ -127,3 +127,13 @@ color:#42515f
   margin-right:15px;
 }
 
+select{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font:normal normal normal 16px Roboto;
+    letter-spacing: bold;
+    color:#42515f;
+background-color: transparent;
+}
