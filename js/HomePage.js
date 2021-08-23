@@ -1,12 +1,20 @@
 //UC4-->using template literals-ES6 feature(table)
+let employeePayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
+    employeePayrollList=getEmployeePayrollFromLocalStorage();
+    document.querySelector(".emp-count").textContent=employeePayrollList.length;
     createInnerHtml();
 });
+//UC6--getting the data from local storage
+const getEmployeePayrollFromLocalStorage=()=>
+{
+    return localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+}
 //UC5-->employee details from json object(retrieving all jsom object using for loop)
 createInnerHtml = () => {
     const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
     let innerHtml = `${headerHtml}`;
-    let employeePayrollList = createEmployeePayrollJSON();
+    let employeePayrollList = getEmployeePayrollFromLocalStorage();
     for (const employeePayrollData of employeePayrollList) {
         innerHtml = `${innerHtml}
     
