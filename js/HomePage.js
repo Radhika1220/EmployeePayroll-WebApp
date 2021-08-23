@@ -2,11 +2,14 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     createInnerHtml();
 });
-//UC5-->employee details from json object
+//UC5-->employee details from json object(retrieving all jsom object using for loop)
 createInnerHtml = () => {
-    const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>"
-    let employeePayrollData = createEmployeePayrollJSON()[1];
-    const innerHtml = `${headerHtml}
+    const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+    let innerHtml = `${headerHtml}`;
+    let employeePayrollList = createEmployeePayrollJSON();
+    for (const employeePayrollData of employeePayrollList) {
+        innerHtml = `${innerHtml}
+    
     <tr>
     <td>
         <img class="profile" alt="" src="${employeePayrollData._profilePic}">
@@ -24,9 +27,11 @@ createInnerHtml = () => {
     </td>
 </tr>
     `;
-    document.querySelector('#display').innerHTML = innerHtml;
-}
 
+        document.querySelector('#display').innerHTML = innerHtml;
+
+    }
+}
 
 
 const createEmployeePayrollJSON = () => {
@@ -55,12 +60,10 @@ const createEmployeePayrollJSON = () => {
     return empPayrollList;
 }
 
-const getDeptHtml=(deptList) =>
-{
-    let deptHtml='';
-    for(const dept of  deptList)
-    {
-        deptHtml=`${deptHtml}<div class="dept-label">${dept}</div>`
+const getDeptHtml = (deptList) => {
+    let deptHtml = '';
+    for (const dept of deptList) {
+        deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`
     }
     return deptHtml;
 }
