@@ -64,7 +64,8 @@ function createAndUpdateStorage(employeePayrollData)
   {
     employeePayrollList.push(employeePayrollData);
   }
-  else{
+  else
+  {
     employeePayrollList=[employeePayrollData];
   }
   alert(employeePayrollList.toString());
