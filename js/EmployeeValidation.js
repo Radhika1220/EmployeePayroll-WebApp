@@ -56,6 +56,7 @@ const save=()=>
     return;
   }
 }
+
 //storing in local storage
 function createAndUpdateStorage(employeePayrollData)
 {

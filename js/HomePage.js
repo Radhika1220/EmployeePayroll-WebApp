@@ -28,10 +28,10 @@ createInnerHtml = () => {
      ${getDeptHtml(employeePayrollData._department)}
     </td>
     <td>${employeePayrollData._salary}</td>
-    <td>${employeePayrollData._startDate}</td>
+    <td>${ stringifyDate(employeePayrollData._startDate)}</td>
     <td>
-        <img id="${employeePayrollData._name}" src="../assests/icons/delete-black-18dp.svg" alt="delete icon">
-        <img id="${employeePayrollData._name}" src="../assests/icons/create-black-18dp.svg" alt="create icon">
+        <img id="${employeePayrollData._name}" src="../assests/icons/delete-black-18dp.svg" alt="delete icon" onclick="remove(this)">
+        <img id="${employeePayrollData._name}" src="../assests/icons/create-black-18dp.svg" alt="create icon" onclick="create(this)">
     </td>
 </tr>
     `;
@@ -40,7 +40,18 @@ createInnerHtml = () => {
 
     }
 }
-
+//delete operation in home page
+const remove=(node)=>
+{
+    let employeePayrollData=employeePayrollList.find(empData=>empData._name==node.id)
+    if(!employeePayrollData) return;
+    const index=employeePayrollList.map(empData=>empData._name)
+                               .indexOf(employeePayrollData._name);
+    employeePayrollList.splice(index,1);
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+    document.querySelector(".emp-count").textContent=employeePayrollList.length;
+    createInnerHtml();
+}
 
 const createEmployeePayrollJSON = () => {
     let empPayrollList = [
