@@ -1,0 +1,66 @@
+{
+  "EmployeePayrollDB": [
+    {
+      "id": 1,
+      "_name": "Mark",
+      "_gender": "male",
+      "_department": [
+        "Engineering",
+        "Finance"
+      ],
+      "_salary": "500000",
+      "_startDate": "1 August 2021",
+      "_note": "All In One",
+      "_profilePic": "../assests/profile-images/Ellipse -2.png"
+    },
+    {
+      "id": 2,
+      "_name": "Bill Gates",
+      "_gender": "male",
+      "_department": [
+        "Engineering"
+      ],
+      "_salary": "500000",
+      "_startDate": "20 August 2021",
+      "_note": "Terrific Engineer",
+      "_profilePic": "../assests/profile-images/Ellipse -3.png"
+    },
+    {
+      "_name": "Amarpa",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "12 August 2021",
+      "_note": "",
+      "_profilePic": "../assests/profile-images/Ellipse -1.png",
+      "id": 3
+    },
+    {
+      "id": "4",
+      "_name": "Radhika",
+      "_profilePic": "../assests/profile-images/Ellipse -4.png",
+      "_gender": "Female",
+      "_department": [
+        "Finance",
+        "Engineer"
+      ],
+      "_salary": "424400",
+      "_notes": "aaa",
+      "_startDate": "18 August 2021"
+    },
+    {
+      "id": "5",
+      "_name": "Subhiksha",
+      "_profilePic": "../assests/profile-images/Ellipse -4.png",
+      "_gender": "Female",
+      "_department": [
+        "Engineer"
+      ],
+      "_salary": "419100",
+      "_notes": "testing",
+      "_startDate": "20 August 2021"
+    }
+  ]
+}
