@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     employeePayrollList=getEmployeePayrollFromLocalStorage();
     document.querySelector(".emp-count").textContent=employeePayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 //UC6--getting the data from local storage
 const getEmployeePayrollFromLocalStorage=()=>
@@ -28,10 +29,10 @@ createInnerHtml = () => {
      ${getDeptHtml(employeePayrollData._department)}
     </td>
     <td>${employeePayrollData._salary}</td>
-    <td>${employeePayrollData._startDate}</td>
+    <td>${ stringifyDate(employeePayrollData._startDate)}</td>
     <td>
-        <img id="${employeePayrollData._name}" src="../assests/icons/delete-black-18dp.svg" alt="delete icon">
-        <img id="${employeePayrollData._name}" src="../assests/icons/create-black-18dp.svg" alt="create icon">
+        <img id="${employeePayrollData._id}" src="../assests/icons/delete-black-18dp.svg" alt="delete icon" onclick="remove(this)">
+        <img id="${employeePayrollData._id}" src="../assests/icons/create-black-18dp.svg" alt="update icon" onclick="update(this)">
     </td>
 </tr>
     `;
@@ -40,8 +41,26 @@ createInnerHtml = () => {
 
     }
 }
-
-
+//delete operation in home page
+const remove=(node)=>
+{
+    let employeePayrollData=employeePayrollList.find(empData=>empData._id==node.id)
+    if(!employeePayrollData) return;
+    const index=employeePayrollList.map(empData=>empData._id)
+                               .indexOf(employeePayrollData._id);
+    employeePayrollList.splice(index,1);
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+    document.querySelector(".emp-count").textContent=employeePayrollList.length;
+    createInnerHtml();
+}
+//update operation
+const update=(node)=>
+{
+    let employeePayrollData=employeePayrollList.find(empData=>empData._id==node.id)
+    if(!employeePayrollData) return;
+    localStorage.setItem('editEmp',JSON.stringify(employeePayrollData))
+    window.location.replace(site_Properties.add_emp_payroll_page);
+}
 const createEmployeePayrollJSON = () => {
     let empPayrollList = [
         {
