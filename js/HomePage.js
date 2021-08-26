@@ -1,21 +1,48 @@
 //UC4-->using template literals-ES6 feature(table)
 let employeePayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
-    employeePayrollList=getEmployeePayrollFromLocalStorage();
+    if(site_Properties.use_local_storage.match("true"))
+    {
+    getEmployeePayrollFromLocalStorage();
+    }
+    else
+    {
+        getEmployeePayrollDataFromServer();
+    }
+});
+const processEmployeePayrollDataResponse=()=>
+{
     document.querySelector(".emp-count").textContent=employeePayrollList.length;
     createInnerHtml();
     localStorage.removeItem('editEmp');
-});
+}
 //UC6--getting the data from local storage
 const getEmployeePayrollFromLocalStorage=()=>
 {
-    return localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+    employeePayrollList=localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+    processEmployeePayrollDataResponse();
+}
+//getting data from json server
+const   getEmployeePayrollDataFromServer=()=>
+{
+    makeServiceCall("GET",site_Properties.server_url,true)
+    .then(responseText=>
+        {
+            employeePayrollList=JSON.parse(responseText);
+            processEmployeePayrollDataResponse();
+        })
+        .catch(error=>
+        {
+console.log("GET Error status: "+JSON.stringify(error));
+employeePayrollList=[];
+processEmployeePayrollDataResponse();
+        });
 }
 //UC5-->employee details from json object(retrieving all jsom object using for loop)
 createInnerHtml = () => {
     const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
     let innerHtml = `${headerHtml}`;
-    let employeePayrollList = getEmployeePayrollFromLocalStorage();
+    //let employeePayrollList = getEmployeePayrollFromLocalStorage();
     for (const employeePayrollData of employeePayrollList) {
         innerHtml = `${innerHtml}
     
