@@ -87,8 +87,10 @@ const setSelectedValues=(property,value)=>{
   });
   }
   //save the data 
-const save=()=>
+const save=(event)=>
 {
+  event.preventDefault();
+  event.stopPropagation();
   try
   {
    setEmployeePayrollObject();
