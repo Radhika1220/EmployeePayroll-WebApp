@@ -76,9 +76,24 @@ const remove=(node)=>
     const index=employeePayrollList.map(empData=>empData.id)
                                .indexOf(employeePayrollData.id);
     employeePayrollList.splice(index,1);
-    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+    if(site_Properties.use_local_storage.match("true"))
+    {
+        localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
     document.querySelector(".emp-count").textContent=employeePayrollList.length;
     createInnerHtml();
+    }
+    else{
+        const deleteURL=site_Properties.server_url+employeePayrollData.id.toString();
+        makeServiceCall("DELETE",deleteURL,false)
+        .then(responseText=>
+            {
+                createInnerHtml();
+            })
+            .catch(error=>
+                {
+                    console.log("DELETE Error Status:"+JSON.stringify(error));
+                });
+    }
 }
 //update operation
 const update=(node)=>
